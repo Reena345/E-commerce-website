@@ -184,31 +184,60 @@ function Products() {
             return (
               <Card
                 key={index}
-                className="card-container my-5  "
-                sx={{ padding: "1px" }}
+                className="card-container my-3"
+                sx={{
+                  padding: "8px",
+                  width: { xs: "100%", sm: "280px", md: "350px" }, 
+                  maxWidth: "100%",
+                }}
               >
-                <Box sx={{ cursor: "pointer", margin: "15px" }}>
+                <Box sx={{ cursor: "pointer", margin: "10px" }}>
                   <img
-                    className="product-img mb-5"
-                    width="400px"
+                    className="product-img mb-3"
                     src={product.img}
-                    alt=""
+                    alt={product.name}
+                    style={{
+                      width: "100%", 
+                      height: "auto",
+                      borderRadius: "8px",
+                      objectFit: "cover",
+                    }}
                   />
 
-                  <Typography variant="h5">{product.name}</Typography>
-                  <Typography className="my-3 text-secondary" variant="h6">
+                  <Typography variant="h6" sx={{ color: "secondary.main" }}>
+                    {product.name}
+                  </Typography>
+                  <Typography
+                    className="my-1"
+                    variant="body2"
+                    sx={{ color: "secondary.main" }}
+                  >
                     {product.title}
                   </Typography>
-                  <Typography variant="h5">{product.price}</Typography>
-                  <Divider sx={{ borderColor: "black" }} variant="fullWidth" />
-                  <Box className="d-flex justify-content-between mx-4">
-                    <ShareIcon className=" my-3 fs-2" />
-                    <FavoriteIcon className=" my-3 fs-2" />
+                  <Typography variant="h6" sx={{ color: "secondary.main" }}>
+                    {product.price}
+                  </Typography>
+
+                  <Divider
+                    sx={{ borderColor: "black", my: 1 }}
+                    variant="fullWidth"
+                  />
+
+                  <Box
+                    className="d-flex justify-content-between"
+                    sx={{
+                      color: "secondary.main",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      px: 2,
+                    }}
+                  >
+                    <ShareIcon className="my-2" fontSize="medium" />
+                    <FavoriteIcon className="my-2" fontSize="medium" />
                     <AddShoppingCartIcon
-                      className=" my-3 fs-2"
-                      onClick={() => {
-                        cartHandler(product);
-                      }}
+                      className="my-2"
+                      fontSize="medium"
+                      onClick={() => cartHandler(product)}
                     />
                   </Box>
                 </Box>
